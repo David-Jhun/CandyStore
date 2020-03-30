@@ -50,5 +50,27 @@ public class CandyStore {
 		}
 		return removed;
 	}
+	
+	public Candy classicSearchCandy( String nombre ) {
+		Candy searched = null;
+		if( !(candies.isEmpty()) ) {
+			for( int i = 0 ; i < candies.size() ; i++ ) {
+				if( candies.get(i).getName().equalsIgnoreCase(nombre) ) {
+					searched = candies.get(i);
+				}
+			}
+		}
+		return searched;
+	}
+	
+	public double calculateSales() {
+		double total = 0;
+		if( !(candies.isEmpty()) ) {
+			for( int i = 0 ; i < candies.size() ; i++ ) {
+				total += ( candies.get(i).getInventoryQuantity() * candies.get(i).getPrice() );
+			}
+		}
+		return total;
+	}
 
 }

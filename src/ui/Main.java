@@ -13,10 +13,11 @@ public class Main {
 	public Main() {
 		dataReader = new Scanner(System.in);
 		init();
+		userMenu();
 	}
 	
 	public void userMenu() {
-		store.getAddress();
+		
 	}
 	
 	public void init() {
@@ -39,14 +40,13 @@ public class Main {
 				store = new CandyStore( name, address, phone );
 				done = true;
 			}catch( Exception e ) {
-				System.out.println("Enter a valid option.");
+				System.out.println(e.getMessage());
 			}
 		}while( !done );
 	}
 	
 	public static void main(String[] args) {
 		Main m = new Main();
-		m.userMenu();
 	}
 
 }
