@@ -210,5 +210,15 @@ public class CandyStore {
 		}
 		return user;
 	}
+	
+	public void deleteUser( String name ) {
+		if( root.getLeftSon() == null && root.getRightSon() == null ) {
+			root = null;
+		}
+	}
+	
+	private void deleteUser( User user, String name ) {
+		
+	}
 
 }
