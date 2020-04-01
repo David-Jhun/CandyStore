@@ -122,5 +122,53 @@ public class CandyStore {
 			}
 		}
 	}
+	
+	public User searchUser( String name ) {
+		User user = null;
+		if( root.getName().equalsIgnoreCase(name) ) {
+			user = root;
+		}else if( root.getName().compareToIgnoreCase(name) < 0 ) {
+			if( root.getLeftSon() != null ) {
+				if( root.getLeftSon().getName().equalsIgnoreCase(name) ) {
+					user = root.getLeftSon();
+				}else {
+					user = searchUser(root.getLeftSon(), name);
+				}
+			}
+		}else {
+			if( root.getRightSon() != null ) {
+				if( root.getRightSon().getName().equalsIgnoreCase(name) ) {
+					user = root.getRightSon();
+				}else {
+					user = searchUser(root.getRightSon(), name);
+				}
+			}
+		}
+		return user;
+	}
+	
+	private User searchUser( User current, String name ) {
+		User user = null;
+		if( current.getName().equalsIgnoreCase(name) ) {
+			user = current;
+		}else if( current.getName().compareToIgnoreCase(name) < 0 ) {
+			if( current.getLeftSon() != null ) {
+				if( current.getLeftSon().getName().equalsIgnoreCase(name) ) {
+					user = current.getLeftSon();
+				}else {
+					user = searchUser(current.getLeftSon(), name);
+				}
+			}
+		}else {
+			if( current.getRightSon() != null ) {
+				if( current.getRightSon().getName().equalsIgnoreCase(name) ) {
+					user = current.getLeftSon();
+				}else {
+					user = searchUser(current.getRightSon(), name);
+				}
+			}
+		}
+		return user;
+	}
 
 }
