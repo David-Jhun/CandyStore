@@ -170,5 +170,45 @@ public class CandyStore {
 		}
 		return user;
 	}
+	
+	public User searchMinimum() {
+		User user = null;
+		if( root.getLeftSon() == null ) {
+			user = root;
+		}else {
+			user = searchMinimum(root.getLeftSon());
+		}
+		return user;
+	}
+	
+	private User searchMinimum( User user ) {
+		User user1 = null;
+		if( user.getLeftSon() == null ) {
+			user1 = user;
+		}else {
+			user1 = searchMinimum(user.getLeftSon());
+		}
+		return user1;
+	}
+	
+	public User searchMaximum() {
+		User user = null;
+		if( root.getRightSon() == null ) {
+			user = root;
+		}else {
+			user = searchMaximum(root.getRightSon());
+		}
+		return user;
+	}
+	
+	private User searchMaximum( User aUser ) {
+		User user = null;
+		if( aUser.getRightSon() == null ) {
+			user = aUser;
+		}else {
+			user = searchMaximum(aUser.getRightSon());
+		}
+		return user;
+	}
 
 }
